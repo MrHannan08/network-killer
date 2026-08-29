@@ -1,16 +1,14 @@
-Network Killer
+# Network Killer
 
-Network Killer is an educational Python-based network stress-testing and traffic-generation lab tool built around a simple interactive terminal interface.
+**Network Killer** is an educational Python-based network stress-testing and traffic-generation lab tool built around a simple interactive terminal interface.
 
 The project provides multiple network testing modes, configurable traffic speed, runtime statistics, and a straightforward CLI experience. It is intended for cybersecurity learning, networking experiments, and authorized laboratory environments.
 
-«⚠️ Educational & Authorized Use Only
+> ⚠️ **Educational & Authorized Use Only**
+>
+> Use this project only on systems, networks, and services that you own or have explicit permission to test. Unauthorized traffic generation or service disruption may be illegal and can cause real-world impact.
 
-Use this project only on systems, networks, and services that you own or have explicit permission to test. Unauthorized traffic generation or service disruption may be illegal and can cause real-world impact.»
-
----
-
-Features
+## Features
 
 - Interactive terminal-based interface
 - Hacker-style CLI design
@@ -26,103 +24,108 @@ Features
 - Basic administrator/root detection
 - Start and stop controls
 - Runtime status information
-- Works with Python 3
+- Python 3 support
 
----
-
-Requirements
+## Requirements
 
 You need:
 
 - Python 3.8 or newer
 - Windows, Linux, or a compatible Unix-like environment
-- Terminal/Command Prompt
+- Terminal or Command Prompt
 - Network access for network-based testing
 
 No external Python packages are required by the current version.
 
----
+## Installation
 
-Installation
-
-Linux
+### Linux
 
 Clone the repository:
 
+```bash
 git clone https://github.com/MrHannan08/network-killer.git
+```
 
 Enter the project directory:
 
+```bash
 cd network-killer
+```
 
 Run the tool:
 
+```bash
 python3 network-killer.py
+```
 
-If your script has a different filename, replace "network-killer.py" with the actual filename.
+If your Python file has a different filename, replace `network-killer.py` with the actual filename.
 
----
-
-Termux Installation
+## Termux Installation
 
 Network Killer can also be used from Termux for authorized laboratory testing.
 
-1. Install Termux
+### 1. Update Termux
 
-Use a trusted and current Termux distribution.
-
-After opening Termux, update the packages:
-
+```bash
 pkg update && pkg upgrade
+```
 
-2. Install Python and Git
+### 2. Install Python and Git
 
+```bash
 pkg install python git
+```
 
-Check the installations:
+Check Python:
 
+```bash
 python --version
+```
 
+Check Git:
+
+```bash
 git --version
+```
 
-3. Clone the Repository
+### 3. Clone the Repository
 
+```bash
 git clone https://github.com/MrHannan08/network-killer.git
+```
 
-Move into the project:
+Enter the project directory:
 
+```bash
 cd network-killer
+```
 
-4. Run the Script
+### 4. Run the Script
 
+```bash
 python network-killer.py
+```
 
 If the script uses another filename, run that file instead.
 
----
+## Termux Notes
 
-Termux Notes
-
-Some network operations behave differently on Android/Termux compared with a traditional Linux system.
+Some networking features may behave differently on Android and Termux compared with a traditional Linux environment.
 
 In particular:
 
 - ICMP functionality can be restricted by Android.
-- Raw networking operations may require privileges that normal Termux does not have.
-- Some operations may behave differently depending on the Android version.
-- Running as root is not required for ordinary Python execution.
-- Do not use Termux to generate unauthorized traffic against public services or networks.
+- Some networking operations may require privileges that normal Termux does not provide.
+- Network behavior can vary depending on the Android version and device.
+- Root access is not required for ordinary Python execution.
+- Only use the tool in environments where you have permission to perform testing.
 
-For learning, a controlled local lab or authorized test environment is recommended.
-
----
-
-Usage
+## Usage
 
 After launching the program, an interactive menu is displayed.
 
-Example:
-
+```text
 [1] UDP Flood
 [2] TCP Flood
 [3] ICMP Flood
@@ -132,14 +135,17 @@ Example:
 [7] Stop Attack
 [s] Status
 [q] Exit
+```
 
 Choose an option by entering its corresponding number or command.
 
-Status
+### Status
 
 Use:
 
+```text
 s
+```
 
 to view runtime information such as:
 
@@ -149,58 +155,45 @@ to view runtime information such as:
 - Uptime
 - Operating system
 
-Exit
+### Exit
 
 Use:
 
+```text
 q
+```
 
 to exit the application.
 
----
+## How It Works
 
-How It Works
+Network Killer is written in Python and uses built-in Python modules for its core functionality.
 
-The application is written entirely in Python and uses Python's built-in modules for its core functionality.
+### Networking
 
-Networking
+The `socket` module is used for network communication and connection testing.
 
-The "socket" module is used for network communication and connection testing.
+### Threading
 
-Threading
+The `threading` module allows different test routines to execute independently.
 
-The "threading" module allows different test routines to execute independently.
+### ICMP
 
-ICMP
+The application uses the system `ping` command for ICMP-related testing.
 
-The application uses the system "ping" command for ICMP-related testing.
-
-HTTP
+### HTTP
 
 Python's standard-library HTTP functionality is used for HTTP request testing.
 
-Platform Detection
+### Platform Detection
 
-The "platform" module is used to identify the operating system and system version.
+The `platform` module is used to identify the operating system and system version.
 
-Terminal Interface
+### Terminal Interface
 
-ANSI escape sequences are used to provide colored terminal output and improve the CLI experience.
+ANSI escape sequences are used to provide colored terminal output and create the interactive CLI experience.
 
----
-
-Project Structure
-
-network-killer/
-│
-├── network-killer.py
-├── README.md
-├── .gitignore
-└── LICENSE
-
----
-
-Educational Use Cases
+## Educational Use Cases
 
 This project can be useful for learning about:
 
@@ -215,31 +208,7 @@ This project can be useful for learning about:
 - Basic network monitoring
 - Cybersecurity laboratory experimentation
 
----
-
-Safe Testing Environment
-
-The safest way to experiment with network traffic generation is to create an isolated laboratory.
-
-For example:
-
-┌─────────────────────┐
-│    Test Machine     │
-│  Network Killer     │
-└──────────┬──────────┘
-           │
-           │ Isolated Network
-           │
-┌──────────▼──────────┐
-│   Authorized Test   │
-│       System        │
-└─────────────────────┘
-
-Use your own machines, localhost-based environments, virtual machines, or another environment where you have explicit authorization.
-
----
-
-Security & Responsible Use
+## Security & Responsible Use
 
 Network traffic-generation tools can have unintended consequences when used incorrectly.
 
@@ -247,18 +216,16 @@ Before testing:
 
 1. Make sure you have permission.
 2. Know exactly which system is being tested.
-3. Use an isolated environment whenever possible.
+3. Use an authorized testing environment.
 4. Start with conservative testing parameters.
 5. Monitor CPU, memory, bandwidth, and network availability.
 6. Stop the test if unexpected behavior occurs.
 
 The author is not responsible for damage, service disruption, data loss, or other consequences resulting from unauthorized or improper use of this project.
 
----
+## Limitations
 
-Limitations
-
-The current version is intentionally a simple CLI-based project.
+The current version is a simple CLI-based project.
 
 Possible limitations include:
 
@@ -270,15 +237,13 @@ Possible limitations include:
 - Runtime-only statistics
 - No persistent logging system
 
----
-
-Future Improvements
+## Future Improvements
 
 Possible improvements for future releases include:
 
 - Dedicated safe laboratory mode
 - Localhost-only testing mode
-- Configuration files
+- Configuration file support
 - Better logging
 - Improved statistics
 - Session reports
@@ -289,9 +254,7 @@ Possible improvements for future releases include:
 - Configurable testing profiles
 - Cleaner CLI architecture
 
----
-
-Contributing
+## Contributing
 
 Contributions, suggestions, and improvements are welcome.
 
@@ -305,31 +268,25 @@ If you want to contribute:
 
 For larger changes, opening an issue first is recommended.
 
----
+## License
 
-License
+This project is released under the **MIT License**.
 
-This project is released under the MIT License.
+See the `LICENSE` file for the complete license text.
 
-See the "LICENSE" file for the complete license text.
+## Author
 
----
-
-Author
-
-MrHannan08
+**MrHannan08**
 
 GitHub:
 
-"https://github.com/MrHannan08"
+https://github.com/MrHannan08
 
 Network Killer is developed as an educational cybersecurity and networking project.
 
----
+## Disclaimer
 
-Disclaimer
-
-Network Killer is provided for educational and authorized security-testing purposes only.
+**Network Killer is provided for educational and authorized security-testing purposes only.**
 
 Do not use this software against systems or networks without explicit permission.
 
